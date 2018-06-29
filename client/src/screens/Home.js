@@ -1,6 +1,9 @@
 import React from 'react';
-import Header from '../components/Header';
 
-const Home = () => <Header title="Home" />
+const Home = () =>
+    <div>
+        <h1>Home</h1>
+        <p>The html goes here</p>
+    </div>
 
 export default Home;
