@@ -13,6 +13,10 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header> */}
+        <h1 className="App-intro">
+-          Here is where the front-end of our app will live
+-        </h1>
+
         <Router>
           <Switch>
               <Route exact path="/" component={Home} />
