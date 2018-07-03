@@ -1,9 +1,9 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 
-const Home = () => <Navbar title="Home" />;
+const Home = () => 
     <div>
-        <h1>Home</h1>
+        <Navbar title="Home" />
         <p>The html goes here</p>
     </div>
 
