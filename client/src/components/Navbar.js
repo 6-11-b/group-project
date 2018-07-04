@@ -5,9 +5,9 @@ const Navbar = ({ title }) => {
     <div>
         <h1>(title)</h1>
         <a href="/">Home | </a>
-        <a href="/Owners">Owners</a>
-        <a href="/Tenants">Tenants</a>
-        <a href="/Propertydatabase">Propertydatabase</a>
+        <a href="/owners">Owners </a>
+        <a href="/tenants">Tenants </a>
+        <a href="/propertydatabase">Propertydatabase </a>
     </div>
 }
 

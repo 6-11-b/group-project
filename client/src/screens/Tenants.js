@@ -76,9 +76,6 @@ var Parent  = React.createClass({
     )
     }
 })
-          
-          
-ReactDOM.render(<Parent/>,document.getElementById("space"))    
-
+            
 
 export default Tenants;

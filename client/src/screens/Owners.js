@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 
 const Owners = () => <Navbar title="Owners" />;
-<h1>Property Owners</h1>
+<h1>Property Owners Signup or Login</h1>
 
 var Parent  = React.createClass({
 getInitialState:function(){
@@ -71,8 +71,4 @@ var Login = React.createClass({
     }
 })
           
-          
-ReactDOM.render(<Parent/>,document.getElementById("space"))
-
-
 export default Owners;
