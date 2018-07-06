@@ -1,34 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Home, Owners, Tenants, Propertydatabase } from './screens';
-import Navbar from './components/Navbar';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import { Home, Owners, Tenants, Propertydatabase, Signup, Login } from './screens';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-const Index = ({ pathname }) => {
-    switch(pathname) {
-        case '/':
-            return <Home />
-        case '/owners':
-            return <Owners />
-        case '/tenants':
-            return <Tenants />
-        case 'propertydatabase':
-            return <Propertydatabase />
-        default: 
-            return <Home />
-    }
-}
-
-let pathname = window.location.pathname;
-
-ReactDOM.render(
-    <Index pathname={pathname} />,
-    document.getElementById('root')
+const Index = () => (
+    <Router>
+        <div>
+            <Route exact path='/' component={Home} />
+            <Route path='/owners' component={Owners} />
+            <Route path='/tenants' component={Tenants} />
+            <Route path='/propertydatabase' component={Propertydatabase} />
+            <Route path='/signup' component={Signup} />
+            <Route path='/login' component={Login} />
+        </div>
+    </Router>
 )
 
-window.addEventListener('popstate', () => {
-    pathname = window.location.pathname;
-}
+ReactDOM.render(
+    <Index />,
+    document.getElementById('root')
 )
