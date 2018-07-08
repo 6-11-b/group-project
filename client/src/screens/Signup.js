@@ -1,32 +1,41 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
-import axios from 'axios';
-      
           
 class Signup extends React.Component {
-    signup () {
-        axios.post('/api/v1/users/signup', this.state).then(() => {
-            alert('success')
-          }).catch((err) => {
-            console.log('error')
-          })
-        }
-
-    setValue(e) {
-        this.setState({[e.target.name]: e.target.value})
-    }   
+    state = {
+        response: ''
+      };
+    
+      componentDidMount() {
+        this.callApi()
+          .then(res => this.setState({ response: res }))
+          .catch(err => console.log(err));
+      }
+    
+      callApi = async () => {
+        const response = await fetch('/api/hello');
+        const body = await response.json();
+    
+        if (response.status !== 200) throw Error(body.message);
+    
+        return body;
+      };
 
     render () {
     return (
     <div>
-    <h1>Please Signup</h1>
-        <div id="signup">
-        <input type="text" id="fist" placeholder="First Name"/>
-        <input type="text" id="last" placeholder="Last Name"/><br></br>
-        <input name="email" placeholder="Email" onChange={(e) => this.setValue(e)} />
-        <input name="password" placeholder="Enter Password" onChange={(e) => this.setValue(e)} />
-        <button onClick={() => this.signup()}>Submit</button>
-        </div>
+        <Navbar title="Signup" />
+        <h1>{this.state.response.message}</h1>
+        <form id="signup" action="/api/signup" method="POST">
+            <input type="radio" name="user" value="tenant" />Tenant
+            <input type="radio" name="user" value="owner" />Owner
+            <br />
+            <input type="text" name="firstName" id="fist" placeholder="First Name"/>
+            <input type="text" name="lastName" id="last" placeholder="Last Name"/><br></br>
+            <input name="email" placeholder="Email" />
+            <input name="password" placeholder="Enter Password" />
+            <button type="submit">Submit</button>
+        </form>
     </div>
     )
 }

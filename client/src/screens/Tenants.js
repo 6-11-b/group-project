@@ -1,9 +1,9 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 
-const Tenants = () => <Navbar title="Tenants" />;
+const Tenants = () => 
     <div>
-        <h1>Tenants Portal</h1>
+        <Navbar title="Tenants" />
         <p>Hello from Tenants' Page</p>
     </div>
           

@@ -1,9 +1,9 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 
-const Propertydatabase = () => <Navbar title="Propertydatabase" />;
+const Propertydatabase = () => 
     <div>
-        <h1>Property Database</h1>
+        <Navbar title="Propertydatabase" />
         <p>The html goes here</p>
     </div>
 
