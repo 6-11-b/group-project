@@ -16,7 +16,7 @@ var userType = "";
 var currentUser = {};
 
 // PRODUCTION ONLY
-// app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.set("port", process.env.PORT || 5000);
 
@@ -97,9 +97,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // PRODUCTION ONLY
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname + '/client/build/index.html'));
-// });
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/client/build/index.html'));
+});
 
 // Development mode port
 
