@@ -1,18 +1,16 @@
 import React from 'react';
 import { Component } from "react"
 
-class Navbar extends Component {
-    render() {
-        return (
-            <div>
-                <h1>{this.props.title}</h1>
-                <a href="/">Home</a>
-                <a href="/Owners">Owners</a>
-                <a href="/Tenants">Tenants</a>
-                <a href="/Propertydatabase">Propertydatabase</a>
-            </div>
-        )
-    }
-};
+const Navbar = ({ title }) => (
+    <div>
+        <h1>{title}</h1>
+        <a href="/">Home | </a>
+        <a href="/owners">Owners </a>
+        <a href="/tenants">Tenants </a>
+        <a href="/propertydatabase">Propertydatabase </a>
+        <a href="/signup">Signup </a>
+        <a href="/login">Login </a>
+    </div>
+)
 
 export default Navbar;

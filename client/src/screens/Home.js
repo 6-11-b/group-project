@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 const Home = () => 
     <div>
         <Navbar title="Home" />
-        <p>The html goes here</p>
+        <p>Hello from Home Page</p>
     </div>
 
 export default Home;
