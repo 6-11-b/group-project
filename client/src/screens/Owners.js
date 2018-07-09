@@ -1,6 +1,7 @@
 
 import React from 'react';
 import Navbar from '../components/Navbar';
+//import ReactDOM from 'react-dom';
 
 const Owners = () => 
     <div>
