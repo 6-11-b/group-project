@@ -26,6 +26,7 @@ class Signup extends React.Component {
     <div>
         <Navbar title="Signup" />
         <h1>{this.state.response.message}</h1>
+        <h2>Please select if you are a property owner or tenant and create your account.</h2>
         <form id="signup" action="/api/signup" method="POST">
             <input type="radio" name="user" value="tenant" />Tenant
             <input type="radio" name="user" value="owner" />Owner
