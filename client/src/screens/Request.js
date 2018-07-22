@@ -47,15 +47,8 @@ class Request extends React.Component {
                 <input type="date" name="date" id="date" placeholder="Date"/>
                 <br />
                 <h2>Please list the problem or repair needed for your rental property</h2>
-                <label for='maintenanceequest'>Maintenance 1 </label>
+                <label for='maintenancerequest'>Maintenance Request </label>
                 <input type="text" name="maintenancerequest" id="maintenance" placeholder="Maintenance Requested"/>
-                <br />
-                <label for='maintenanceequest'>Maintenance 2 </label>
-                <input type="text" name="maintenancerequest" id="maintenance" placeholder="Maintenance Requested"/>
-                <br />
-                <label for='maintenanceequest'>Maintenance 3 </label>
-                <input type="text" name="maintenancerequest" id="maintenance" placeholder="Maintenance Requested"/>
-                <br />
                 
                 <button type="submit">Submit Request</button>
             </form>
