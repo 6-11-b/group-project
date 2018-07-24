@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 //import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import {Home, Owners, Tenants, Propertydatabase, Request} from './screens/index';
+import {Home, Owners, Tenants, Propertydatabase, Request, Rental} from './screens/index';
 
 class App extends Component {
   constructor(props) {
