@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar';
 
 const Propertydatabase = () => 
     <div>
-        <Navbar title="Propertydatabase" />
+        <Navbar title="Property Database" />
         <p>The html goes here</p>
     </div>
 

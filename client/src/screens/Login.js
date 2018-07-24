@@ -1,12 +1,13 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
-          
+
+
 class Login extends React.Component {
     render() {
     return (
         <div>
             <Navbar title="Login" />
-            <h1>Please Signup</h1>
+            <h1>Please select if you are a Property Owner or Tenant and login to your account</h1>
             <form id="login" action="/api/login" method="POST">
                 <input type="radio" name="user" value="tenant" />Tenant
                 <input type="radio" name="user" value="owner" />Owner
@@ -21,3 +22,4 @@ class Login extends React.Component {
 }
 
 export default Login;
+
