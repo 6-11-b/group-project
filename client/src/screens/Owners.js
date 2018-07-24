@@ -23,7 +23,7 @@ const Owners = () =>
     <ul>
       <li>Review New Tenant Application Requests</li>
       <li>Tenant Maintenance Requests</li>
-      <li>Check on My Properties</li>
+      <li><a href='./Propertydatabase'>Check on My Properties</a></li>
       <li>Other Forms/Request</li>
     </ul>
   </div>

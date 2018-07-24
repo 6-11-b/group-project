@@ -11,7 +11,8 @@ const Navbar = ({ title }) => (
         <a href="/tenants">Tenants | </a>
         <a href="/propertydatabase">Property Database | </a>
         <a href="/signup">Signup | </a>
-        <a href="/login">Login </a>
+        <a href="/login">Login | </a>
+        <a href="/request">Request</a>
     </div>
 )
 

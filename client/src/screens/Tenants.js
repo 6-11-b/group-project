@@ -18,7 +18,7 @@ const Tenants = () =>
 <div class="col-3 menu">
   <ul>
     <li>Submit a Rental Application</li>
-    <li>Submit a Maintenance Requests</li>
+    <li><a href='./Request'>Submit a Maintenance Requests</a></li>
     <li>Check on Available Properties</li>
     <li>Other Forms/Request</li>
   </ul>
