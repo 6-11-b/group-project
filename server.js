@@ -97,10 +97,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // PRODUCTION ONLY
+/*
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/build/index.html'));
 });
-
+*/
 // Development mode port
 
 app.get("/api/hello", (req, res) => {
@@ -159,6 +160,24 @@ app.post('/api/login', function( req, res, next) {
         failureRedirect: "/login"
       })(req, res, next);
       console.log(currentUser);
+});
+
+app.post('/api/request', function( req, res, next) {
+    db.collection('maintenance').save({
+        user: req.body.user,
+        name: req.body.firstlastname,
+        email: req.body.email,
+        address: req.body.address,
+        date: req.body.date,
+        request: req.body.maintenancerequest
+    }).then(
+        console.log('Successful mantinence request generation')
+    ).then(
+        res.redirect(303, '/')
+    ).catch(function(err) {
+        console.log(err, req.body)
+    });
+
 });
 
 MongoClient.connect('mongodb://user1:L36e21o707@ds221271.mlab.com:21271/propertymanagement', { useNewUrlParser: true }, (err, client) => {
