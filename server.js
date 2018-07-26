@@ -180,6 +180,91 @@ app.post('/api/request', function( req, res, next) {
 
 });
 
+app.post('/api/rental', function( req, res, next) {
+    db.collection('rentalApplication').save({
+        todaysDate: req.body.todaysDate,
+        address: req.body.address,
+        rent: req.body.rent,
+        deposit: req.body.deposit,
+        moveInDate: req.body.moveInDate,
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        applicantdob: req.body.applicantdob,
+        applicantsocial: req.body.applicantsocial,
+        applicantlicense: req.body.applicantlicense,
+        applicantphone: req.body.applicantphone,
+        applicantemail: req.body.applicantemail,
+        coapplicant: req.body.coapplicant,
+        codob: req.body.codob,
+        cosocial: req.body.cosocial,
+        colicense: req.body.colicense,
+        cophone: req.body.cophone,
+        coemail: req.body.coemail,
+        currentaddress: req.body.currentaddress,
+        currentpayment: req.body.currentpayment,
+        currentowner: req.body.currentowner,
+        currenttype: req.body.currenttype,
+        currentfromdate: req.body.currentfromdate,
+        currenttodate: req.body.currenttodate,
+        currentlandlordname: req.body.currentlandlordname,
+        currentphone: req.body.currentphone,
+        prioraddress: req.body.prioraddress,
+        priorpayment: req.body.priorpayment,
+        priorowner: req.body.priorowner,
+        priortype: req.body.priortype,
+        priorfromdate: req.body.priorfromdate,
+        priortodate: req.body.priortodate,
+        priorlandlordname: req.body.priorlandlordname,
+        priorphone: req.body.priorphone,
+        oc1firstlastname: req.body.oc1firstlastname,
+        oc1dob: req.body.oc1dob,
+        oc2firstlastname: req.body.oc2firstlastname,
+        oc2dob: req.body.oc2dob,
+        oc3firstlastname: req.body.oc3firstlastname,
+        oc3dob: req.body.oc3dob,
+        felony: req.body.felony,
+        evicted: req.body.evicted,
+        defaulted: req.body.defaulted,
+        smoke: req.body.smoke,
+        pets: req.body.pets,
+        numberofpets: req.body.numberofpets,
+        pettype: req.body.pettype,
+        currentemployer: req.body.currentemployer,
+        currentsupervisor: req.body.currentsupervisor,
+        currentemployerphone: req.body.currentemployerphone,
+        currentemployeraddress: req.body.currentemployeraddress,
+        currentposition: req.body.currentposition,
+        currentbusiness: req.body.currentbusiness,
+        currentincome: req.body.currentincome,
+        currentemploymentfromdate: req.body.currentemploymentfromdate,
+        currentemploymenttodate: req.body.currentemploymenttodate,
+        currentincome: req.body.currentincome,
+        currentsource: req.body.currentsource,
+        prioremployer: req.body.prioremployer,
+        priorsupervisor: req.body.priorsupervisor,
+        prioremployerphone: req.body.employerphone,
+        prioremployeraddress: req.body.prioremployeraddress,
+        priorposition: req.body.priorposition,
+        priorbusiness: req.body.priorbusiness,
+        priorincome: req.body.priorincome,
+        prioremploymentfromdate: req.body.prioremploymentfromdate,
+        prioremploymenttodate: req.body.prioremploymenttodate,
+        bank: req.body.bank,
+        checkingbankamount: req.body.checkingbankamount,
+        savingbankamount: req.body.savingbankamount,
+        cobank: req.body.cobank,
+        cocheckingbankamount: req.body.cocheckingbankamount,
+        cosavingbankamount: req.body.cosavingbankamount
+    }).then(
+        console.log('Successful tenant application')
+    ).then(
+        res.redirect(303, '/')
+    ).catch(function(err) {
+        console.log(err, req.body)
+    });
+
+});
+
 MongoClient.connect('mongodb://user1:L36e21o707@ds221271.mlab.com:21271/propertymanagement', { useNewUrlParser: true }, (err, client) => {
     if (err) { return console.log(err) }
     db = client.db('propertymanagement');
