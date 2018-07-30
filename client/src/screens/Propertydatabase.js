@@ -3,8 +3,11 @@ import Navbar from '../components/Navbar';
 
 const Propertydatabase = () => 
     <div>
-        <Navbar title="Property Database" />
-        <p>The html goes here</p>
+        <div>
+        <Navbar title/>
+        </div>
+        <h1>Property Database</h1>
+        <p style={{fontSize: 20}}>Click on our Property Database to view rental property listings</p>
     </div>
 
 export default Propertydatabase;

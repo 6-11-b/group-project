@@ -6,8 +6,11 @@ class Login extends React.Component {
     render() {
     return (
         <div>
-            <Navbar title="Login" />
-            <h1>Please select if you are a Property Owner or Tenant and login to your account</h1>
+            <div>
+            <Navbar title/>
+            </div>
+            <h1>Login</h1>
+            <p style={{fontSize: 20}}>Please select if you are a Property Owner or Tenant and login to your account</p>
             <form id="login" action="/api/login" method="POST">
                 <input type="radio" name="user" value="tenant" />Tenant
                 <input type="radio" name="user" value="owner" />Owner

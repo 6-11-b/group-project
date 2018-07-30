@@ -26,10 +26,10 @@ class Checklist extends React.Component {
     render() {
     return (
         <div>
-            <Navbar title="Checklist" />
+            <Navbar title/>
             <h1>{this.state.response.message}</h1>
             <h1>Move-In and Move-Out Walkthrough Checklist</h1>
-            <h2>Please complete the checklist during your walkthrough. Select if you are moving in or moving out of a rental property. </h2>
+            <p style={{fontSize: 20, fontWeight: "bold"}}>Please complete the checklist during your walkthrough. Select if you are moving in or moving out of a rental property. </p>
             <form id="checklist" action="/api/checklist" method="POST">
                 <input type="radio" name="move" value="movein" />Move-In
                 <input type="radio" name="move" value="moveout" />Move-Out
@@ -47,7 +47,7 @@ class Checklist extends React.Component {
                 <label for='date'>Current Date </label>
                 <input type="date" name="date" id="date" placeholder="Date"/>
                 <br />
-                <h2>Rental Property Conditions:</h2>
+                <p style={{fontSize: 20, fontWeight: "bold"}}>Rental Property Conditions:</p>
                 <label for='date'>Date of Move-In Walkthrough </label>
                 <input type="date" name="date" id="date" placeholder="Date"/>
                 <br />

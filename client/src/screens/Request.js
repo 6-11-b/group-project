@@ -46,7 +46,7 @@ class Request extends React.Component {
                 <label for='date'>Enter the date of request: </label>
                 <input type="date" name="date" id="date" placeholder="Date"/>
                 <br />
-                <h2>Please list the problem or repair needed for your rental property</h2>
+                <p style={{fontSize: 20, fontWeight: "bold"}}>Please list the problem or repair needed for your rental property</p>
                 <label for='maintenancerequest'>Maintenance Request </label>
                 <input type="text" name="maintenancerequest" id="maintenance" placeholder="Maintenance Requested"/>
                 
