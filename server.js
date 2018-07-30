@@ -97,11 +97,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // PRODUCTION ONLY
-/*
+
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/build/index.html'));
 });
-*/
+
 // Development mode port
 
 app.get("/api/hello", (req, res) => {
@@ -171,17 +171,45 @@ app.post('/api/request', function( req, res, next) {
         date: req.body.date,
         request: req.body.maintenancerequest
     }).then(
-        console.log('Successful mantinence request generation')
+        console.log('Successful maintenance request generation')
     ).then(
         res.redirect(303, '/')
     ).catch(function(err) {
         console.log(err, req.body)
     });
-
 });
 
-app.post('/api/request/edit', function( req, res, next) {
-    db.collection('maintenance').updateOne({
+app.get("/api/request", (req, res) => {
+    db.collection('maintenance').find({email: currentUser.email}).toArray(function(err, reports) {  
+        console.log("Fetching /api/requests");
+        console.log(reports);
+        res.send({maintenance: reports });
+    })
+});
+
+app.post('/api/request/update', function( req, res, next) {
+    db.collection('maintenance').updateOne(
+        {
+            name: req.body.firstlastname,
+            email: req.body.email,
+            address: req.body.address,
+            date: req.body.date
+        },
+            {$set: {
+                maintenancerequest: req.body.maintenancerequest
+            } },
+            { upsert:true }
+        ).then(
+            console.log('Successful maintenance request updated')
+        ).then(
+            res.redirect(303, '/')
+        ).catch(function(err) {
+            console.log(err, req.body)
+    });
+});
+
+app.post('/api/request', function( req, res, next) {
+    db.collection('maintenance').save({
         user: req.body.user,
         name: req.body.firstlastname,
         email: req.body.email,
@@ -190,6 +218,26 @@ app.post('/api/request/edit', function( req, res, next) {
         request: req.body.maintenancerequest
     }).then(
         console.log('Successful maintenance request generation')
+    ).then(
+        res.redirect(303, '/')
+    ).catch(function(err) {
+        console.log(err, req.body)
+    });
+});
+
+app.post('/api/request/delete', function( req, res, next) {
+    db.collection('maintenance').remove(
+        {
+            user: req.body.user,
+            name: req.body.firstlastname,
+            email: req.body.email,
+            address: req.body.address,
+            date: req.body.date
+        }, {
+            justOne: true
+        }
+    ).then(
+        console.log('Successful maintenance request deletion')
     ).then(
         res.redirect(303, '/')
     ).catch(function(err) {
@@ -283,10 +331,10 @@ app.post('/api/rental', function( req, res, next) {
 });
 
 app.get("/api/property", (req, res) => {
-    db.collection('property').find({}).toArray(function(err, properties) {  
+    db.collection('property').find({}).toArray(function(err, reports) {  
         console.log("Fetching /api/property");
-        console.log(properties);
-        res.send({property: properties });
+        console.log(reports);
+        res.send({property: reports });
     })
 });
 
@@ -304,3 +352,5 @@ MongoClient.connect('mongodb://user1:L36e21o707@ds221271.mlab.com:21271/property
 });
 
 module.exports = app;
+
+
