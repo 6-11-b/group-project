@@ -266,10 +266,10 @@ app.post('/api/rental', function( req, res, next) {
 });
 
 app.get("/api/property", (req, res) => {
-    db.collection('property').find({}).toArray(function(err, reports) {  
+    db.collection('property').find({}).toArray(function(err, properties) {  
         console.log("Fetching /api/property");
-        console.log(reports);
-        res.send({property: reports });
+        console.log(properties);
+        res.send({property: properties });
     })
 });
 
