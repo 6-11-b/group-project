@@ -15,16 +15,16 @@ const Owners = () =>
 
   <div class="col-9">
     <h1 class="welcome-h1">Welcome Property Owners</h1>
-    <p class="para1">Please click on the links to review new tenant application request, review current tenant maintenance request
-    check on the status of your property rentals, or see other forms/requests</p>
+    <p style={{fontSize: 20}}>Please click on the links to review new tenant application requests, review current tenant maintenance requests, or 
+    check on the status of your property rentals</p>
   </div>
   
   <div class="col-3 menu">
     <ul>
-      <li>Review New Tenant Application Requests</li>
-      <li>Tenant Maintenance Requests</li>
-      <li><a href='./Propertydatabase'>Check on My Properties</a></li>
-      <li>Other Forms/Request</li>
+    <li><a href='./Rental'>Rental Applications</a></li>
+    <li><a href='./Request'>Maintenance Requests</a></li>
+    <li><a href='./Checklist'>Property Checklsit</a></li>
+    <li>My Properties</li>
     </ul>
   </div>
   

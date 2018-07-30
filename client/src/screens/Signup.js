@@ -24,9 +24,12 @@ class Signup extends React.Component {
     render () {
     return (
     <div>
-        <Navbar title="Signup" />
+        <div>
+        <Navbar title/>
+        </div>
         <h1>{this.state.response.message}</h1>
-        <h2>Please select if you are a property owner or tenant and create your account.</h2>
+        <h1>Sign Up</h1>
+        <p style={{fontSize: 20}}>Please select if you are a property owner or tenant to create your account.</p>
         <form id="signup" action="/api/signup" method="POST">
             <input type="radio" name="user" value="tenant" />Tenant
             <input type="radio" name="user" value="owner" />Owner
@@ -35,7 +38,7 @@ class Signup extends React.Component {
             <input type="text" name="lastName" id="last" placeholder="Last Name"/><br></br>
             <input name="email" placeholder="Email" />
             <input name="password" placeholder="Enter Password" />
-            <button type="submit">Submit</button>
+            <button style={{backgroundColor: 'ligthgray'}} type="submit">Submit</button>
         </form>
     </div>
     )

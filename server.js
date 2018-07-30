@@ -97,17 +97,17 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // PRODUCTION ONLY
-/*
+
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/build/index.html'));
 });
-*/
+
 // Development mode port
 
 app.get("/api/hello", (req, res) => {
     console.log("Fetching /api/hello");
     console.log(currentUser);
-    res.send({message: ""});
+    res.send({message: "message"});
 });
 
 app.post("/api/signup", function (req, res) {
@@ -171,7 +171,157 @@ app.post('/api/request', function( req, res, next) {
         date: req.body.date,
         request: req.body.maintenancerequest
     }).then(
-        console.log('Successful mantinence request generation')
+        console.log('Successful maintenance request generation')
+    ).then(
+        res.redirect(303, '/')
+    ).catch(function(err) {
+        console.log(err, req.body)
+    });
+});
+
+app.get("/api/request", (req, res) => {
+    db.collection('maintenance').find({email: currentUser.email}).toArray(function(err, reports) {  
+        console.log("Fetching /api/requests");
+        console.log(reports);
+        res.send({maintenance: reports });
+    })
+});
+
+app.post('/api/request/update', function( req, res, next) {
+    db.collection('maintenance').updateOne(
+        {
+            name: req.body.firstlastname,
+            email: req.body.email,
+            address: req.body.address,
+            date: req.body.date
+        },
+            {$set: {
+                maintenancerequest: req.body.maintenancerequest
+            } },
+            { upsert:true }
+        ).then(
+            console.log('Successful maintenance request updated')
+        ).then(
+            res.redirect(303, '/')
+        ).catch(function(err) {
+            console.log(err, req.body)
+    });
+});
+
+app.post('/api/request', function( req, res, next) {
+    db.collection('maintenance').save({
+        user: req.body.user,
+        name: req.body.firstlastname,
+        email: req.body.email,
+        address: req.body.address,
+        date: req.body.date,
+        request: req.body.maintenancerequest
+    }).then(
+        console.log('Successful maintenance request generation')
+    ).then(
+        res.redirect(303, '/')
+    ).catch(function(err) {
+        console.log(err, req.body)
+    });
+});
+
+app.post('/api/request/delete', function( req, res, next) {
+    db.collection('maintenance').remove(
+        {
+            user: req.body.user,
+            name: req.body.firstlastname,
+            email: req.body.email,
+            address: req.body.address,
+            date: req.body.date
+        }, {
+            justOne: true
+        }
+    ).then(
+        console.log('Successful maintenance request deletion')
+    ).then(
+        res.redirect(303, '/')
+    ).catch(function(err) {
+        console.log(err, req.body)
+    });
+});
+
+app.post('/api/rental', function( req, res, next) {
+    db.collection('rentalApplication').save({
+        todaysDate: req.body.todaysDate,
+        address: req.body.address,
+        rent: req.body.rent,
+        deposit: req.body.deposit,
+        moveInDate: req.body.moveInDate,
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        applicantdob: req.body.applicantdob,
+        applicantsocial: req.body.applicantsocial,
+        applicantlicense: req.body.applicantlicense,
+        applicantphone: req.body.applicantphone,
+        applicantemail: req.body.applicantemail,
+        coapplicant: req.body.coapplicant,
+        codob: req.body.codob,
+        cosocial: req.body.cosocial,
+        colicense: req.body.colicense,
+        cophone: req.body.cophone,
+        coemail: req.body.coemail,
+        currentaddress: req.body.currentaddress,
+        currentpayment: req.body.currentpayment,
+        currentowner: req.body.currentowner,
+        currenttype: req.body.currenttype,
+        currentfromdate: req.body.currentfromdate,
+        currenttodate: req.body.currenttodate,
+        currentlandlordname: req.body.currentlandlordname,
+        currentphone: req.body.currentphone,
+        prioraddress: req.body.prioraddress,
+        priorpayment: req.body.priorpayment,
+        priorowner: req.body.priorowner,
+        priortype: req.body.priortype,
+        priorfromdate: req.body.priorfromdate,
+        priortodate: req.body.priortodate,
+        priorlandlordname: req.body.priorlandlordname,
+        priorphone: req.body.priorphone,
+        oc1firstlastname: req.body.oc1firstlastname,
+        oc1dob: req.body.oc1dob,
+        oc2firstlastname: req.body.oc2firstlastname,
+        oc2dob: req.body.oc2dob,
+        oc3firstlastname: req.body.oc3firstlastname,
+        oc3dob: req.body.oc3dob,
+        felony: req.body.felony,
+        evicted: req.body.evicted,
+        defaulted: req.body.defaulted,
+        smoke: req.body.smoke,
+        pets: req.body.pets,
+        numberofpets: req.body.numberofpets,
+        pettype: req.body.pettype,
+        currentemployer: req.body.currentemployer,
+        currentsupervisor: req.body.currentsupervisor,
+        currentemployerphone: req.body.currentemployerphone,
+        currentemployeraddress: req.body.currentemployeraddress,
+        currentposition: req.body.currentposition,
+        currentbusiness: req.body.currentbusiness,
+        currentincome: req.body.currentincome,
+        currentemploymentfromdate: req.body.currentemploymentfromdate,
+        currentemploymenttodate: req.body.currentemploymenttodate,
+        currentincome: req.body.currentincome,
+        currentsource: req.body.currentsource,
+        prioremployer: req.body.prioremployer,
+        priorsupervisor: req.body.priorsupervisor,
+        prioremployerphone: req.body.employerphone,
+        prioremployeraddress: req.body.prioremployeraddress,
+        priorposition: req.body.priorposition,
+        priorbusiness: req.body.priorbusiness,
+        priorincome: req.body.priorincome,
+        prioremploymentfromdate: req.body.prioremploymentfromdate,
+        prioremploymenttodate: req.body.prioremploymenttodate,
+        bank: req.body.bank,
+        checkingbankamount: req.body.checkingbankamount,
+        savingbankamount: req.body.savingbankamount,
+        cobank: req.body.cobank,
+        cocheckingbankamount: req.body.cocheckingbankamount,
+        cosavingbankamount: req.body.cosavingbankamount
+    }).then(
+        console.log('Successful tenant application')
     ).then(
         res.redirect(303, '/')
     ).catch(function(err) {
@@ -179,6 +329,15 @@ app.post('/api/request', function( req, res, next) {
     });
 
 });
+
+app.get("/api/property", (req, res) => {
+    db.collection('property').find({}).toArray(function(err, reports) {  
+        console.log("Fetching /api/property");
+        console.log(reports);
+        res.send({property: reports });
+    })
+});
+
 
 MongoClient.connect('mongodb://user1:L36e21o707@ds221271.mlab.com:21271/propertymanagement', { useNewUrlParser: true }, (err, client) => {
     if (err) { return console.log(err) }
@@ -193,3 +352,5 @@ MongoClient.connect('mongodb://user1:L36e21o707@ds221271.mlab.com:21271/property
 });
 
 module.exports = app;
+
+

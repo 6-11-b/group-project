@@ -31,8 +31,8 @@ class Rental extends React.Component {
             <h1>Please fill out the rental application for the property you are interested in renting</h1>
             <form id="rental" action="/api/rental" method="POST">
         <h2>Rental Property Information</h2>
-                <label for='date'>Today's Date </label>
-                <input type="date" name="date" id="date" placeholder="Date"/>
+                <label for='todaysDate'>Today's Date </label>
+                <input type="date" name="todaysDate" id="todaysDate" placeholder="Today's Date"/>
                 <br />
                 <label for='address'>Property address: </label>
                 <input type="text" name="address" id="address" placeholder/>
@@ -43,8 +43,8 @@ class Rental extends React.Component {
                 <label for='deposit'>Deposit Amount $ </label>
                 <input type="number" name="deposit" id="deposit" placeholder/>
                 <br />
-                <label for='date'>Expected Move-In Date </label>
-                <input type="date" name="date" id="date" placeholder="Date"/>
+                <label for='moveInDate'>Expected Move-In Date </label>
+                <input type="date" name="moveInDate" id="moveInDate" placeholder="Move In Date"/>
                 <br />
         <h2>Applicant History</h2>
                 <br />
@@ -54,101 +54,101 @@ class Rental extends React.Component {
                 <label for='lastname'>Applicant's Last name: </label>
                 <input type="text" name="lastname" id="last" placeholder/>
                 <br />
-                <label for='dob'>Date of Birth </label>
-                <input type="date" name="dob" id="dob" placeholder="DOB"/>
+                <label for='applicantdob'>Date of Birth </label>
+                <input type="date" name="applicantdob" id="applicantdob" placeholder="DOB"/>
                 <br />
-                <label for='social'>Social Security Number: </label>
-                <input type="number" name="social" id="social" placeholder="SSN"/>
+                <label for='applicantsocial'>Social Security Number: </label>
+                <input type="number" name="applicantsocial" id="applicantsocial" placeholder="SSN"/>
                 <br />
-                <label for='license'>Drivers License Number: </label>
-                <input type="number" name="license" id="license" placeholder/>
+                <label for='applicantlicense'>Drivers License Number: </label>
+                <input type="number" name="applicantlicense" id="applicantlicense" placeholder/>
                 <br />
-                <label for='phone'>Phone number: </label>
-                <input type="number" name="phone" id="phone" placeholder="Phone"/>
+                <label for='applicantphone'>Phone number: </label>
+                <input type="number" name="applicantphone" id="applicantphone" placeholder="Phone"/>
                 <br />
-                <label for='email'>Email address: </label>
-                <input type="email" name="email" id="email" placeholder="Email"/>
+                <label for='applicantemail'>Email address: </label>
+                <input type="email" name="applicantemail" id="applicantemail" placeholder="Email"/>
                 <br />
             <h3>Co-Applicants (Including Spouse)</h3>
                 <label for='coapplicant'>Name of Co-Applicant: </label>
-                <input type="text" name="coapplicant" id="coapplicant" placeholder/>
+                <input type="text" name="coapplicant" id="coapplicant" placeholder="Name" />
                 <br />
-                <label for='dob'>Date of Birth </label>
-                <input type="date" name="dob" id="dob" placeholder="DOB"/>
+                <label for='codob'>Date of Birth </label>
+                <input type="date" name="codob" id="codob" placeholder="DOB"/>
                 <br />
-                <label for='social'>Social Security Number: </label>
-                <input type="number" name="social" id="social" placeholder="SSN"/>
+                <label for='cosocial'>Social Security Number: </label>
+                <input type="number" name="cosocial" id="cosocial" placeholder="SSN"/>
                 <br />
-                <label for='license'>Drivers License Number: </label>
-                <input type="number" name="license" id="license" placeholder/>
+                <label for='colicense'>Drivers License Number: </label>
+                <input type="number" name="colicense" id="colicense" placeholder/>
                 <br />
-                <label for='phone'>Phone number: </label>
-                <input type="number" name="phone" id="phone" placeholder="Phone"/>
+                <label for='cophone'>Phone number: </label>
+                <input type="number" name="cophone" id="cophone" placeholder="Phone"/>
                 <br />
-                <label for='email'>Email address: </label>
-                <input type="email" name="email" id="email" placeholder="Email"/>
+                <label for='coemail'>Email address: </label>
+                <input type="email" name="coemail" id="coemail" placeholder="Email"/>
                 <br />
             <h3>Applicant's Current Address </h3>
-                <label for='address'>Current Address: </label>
-                <input type="text" name="address" id="address" placeholder/>
+                <label for='currentaddress'>Current Address: </label>
+                <input type="text" name="currentaddress" id="currentaddress" placeholder/>
                 <br />
-                <label for='payment'>Monthly Payment $ </label>
-                <input type="text" name="payment" id="payment" placeholder/>
+                <label for='currentpayment'>Monthly Payment $ </label>
+                <input type="text" name="currentpayment" id="payment" placeholder/>
                 <br />
-                <input type="radio" name="rent" value="rent" />Rent
-                <input type="radio" name="own" value="own" />Own
+                <input type="radio" name="currentowner" value="rent" />Rent
+                <input type="radio" name="currentowner" value="own" />Own
                 <br />
-                <input type="radio" name="apartment" value="apartment" />Apartment
-                <input type="radio" name="home" value="home" />Home
+                <input type="radio" name="currenttype" value="apartment" />Apartment
+                <input type="radio" name="currenttype" value="home" />Home
                 <br />
-                <label for='date'>Date: From - To </label>
-                <input type="date" name="date" id="date" placeholder="Date"/>
-                <input type="date" name="date" id="date" placeholder="Date"/>
+                <label for='currentfromdate'>Date: From - To </label>
+                <input type="date" name="currentfromdate" id="currentdate" placeholder="Date"/>
+                <input type="date" name="currenttodate" id="currentdate" placeholder="Date"/>
                 <br />
-                <label for='landlordname'>Current Landlord's Name </label>
-                <input type="text" name="landlordname" id="landlordname" placeholder/>
+                <label for='currentlandlordname'>Current Landlord's Name </label>
+                <input type="text" name="currentlandlordname" id="currentlandlordname" placeholder/>
                 <br />
-                <label for='phone'>Current LandLord's Phone Number: </label>
-                <input type="number" name="phone" id="phone" placeholder/>
+                <label for='currentphone'>Current LandLord's Phone Number: </label>
+                <input type="number" name="currentphone" id="currentphone" placeholder/>
                 <br />
             <h3>Applicant's Prior Address</h3>
-                <label for='address'>Prior Address: </label>
-                <input type="text" name="address" id="address" placeholder/>
+                <label for='prioraddress'>Prior Address: </label>
+                <input type="text" name="prioraddress" id="prioraddress" placeholder/>
                 <br />
-                <label for='payment'>Monthly Payment $ </label>
-                <input type="text" name="payment" id="payment" placeholder/>
+                <label for='priorpayment'>Monthly Payment $ </label>
+                <input type="text" name="priorpayment" id="priorpayment" placeholder/>
                 <br />
-                <input type="radio" name="rent" value="rent" />Rent
-                <input type="radio" name="own" value="own" />Own
+                <input type="radio" name="priorowner" value="rent" />Rent
+                <input type="radio" name="priorowner" value="own" />Own
                 <br />
-                <input type="radio" name="apartment" value="apartment" />Apartment
-                <input type="radio" name="home" value="home" />Home
+                <input type="radio" name="priortype" value="apartment" />Apartment
+                <input type="radio" name="priortype" value="home" />Home
                 <br />
-                <label for='date'>Date: From - To </label>
-                <input type="date" name="date" id="date" placeholder="Date"/>
-                <input type="date" name="date" id="date" placeholder="Date"/>
+                <label for='priorfromdate'>Date: From - To </label>
+                <input type="date" name="priorfromdate" id="priordate" placeholder="Date"/>
+                <input type="date" name="priortodate" id="priordate" placeholder="Date"/>
                 <br />
-                <label for='landlordname'>Current Landlord's Name </label>
-                <input type="text" name="landlordname" id="landlordname" placeholder/>
+                <label for='priorlandlordname'>Current Landlord's Name </label>
+                <input type="text" name="priorlandlordname" id="priorlandlordname" placeholder/>
                 <br />
-                <label for='phone'>Current LandLord's Phone Number: </label>
-                <input type="number" name="phone" id="phone" placeholder/>
+                <label for='priorphone'>Current LandLord's Phone Number: </label>
+                <input type="number" name="priorphone" id="priorphone" placeholder/>
                 <br />
         <h2>Proposed Occupants</h2>
-                <label for='firstlastname'>1. First and Last Name: </label>
-                <input type="text" name="firstlastname" id="firstlast" placeholder/>
-                <label for='dob'>Date of Birth </label>
-                <input type="date" name="dob" id="dob" placeholder="DOB"/>
+                <label for='oc1firstlastname'>1. First and Last Name: </label>
+                <input type="text" name="oc1firstlastname" id="oc1firstlast" placeholder/>
+                <label for='oc1dob'>Date of Birth </label>
+                <input type="date" name="oc1dob" id="oc1dob" placeholder="DOB"/>
                 <br />
-                <label for='firstlastname'>2. First and Last Name: </label>
-                <input type="text" name="firstlastname" id="firstlast" placeholder/>
-                <label for='dob'>Date of Birth </label>
-                <input type="date" name="dob" id="dob" placeholder="DOB"/>
+                <label for='oc2firstlastname'>2. First and Last Name: </label>
+                <input type="text" name="oc2firstlastname" id="oc2firstlast" placeholder/>
+                <label for='oc2dob'>Date of Birth </label>
+                <input type="date" name="oc2dob" id="oc2dob" placeholder="DOB"/>
                 <br />
-                <label for='firstlastname'>3. First and Last Name: </label>
-                <input type="text" name="firstlastname" id="firstlast" placeholder/>
-                <label for='dob'>Date of Birth </label>
-                <input type="date" name="dob" id="dob" placeholder="DOB"/>
+                <label for='oc3firstlastname'>3. First and Last Name: </label>
+                <input type="text" name="oc3firstlastname" id="oc3firstlast" placeholder/>
+                <label for='oc3dob'>Date of Birth </label>
+                <input type="date" name="oc3dob" id="oc3dob" placeholder="DOB"/>
                 <br />
             <h3>Have you or any of the proposed occupants ever:</h3>
                 <label for='felony'>Been convicted of a felony? </label>
@@ -179,86 +179,83 @@ class Rental extends React.Component {
                 <br />
         <h2>Employment</h2>
             <h3>Current Employer:</h3>
-                <label for='employer'>Current Employer (if self-employed, name of buisness) </label>
-                <input type="text" name="employername" id="employername" placeholder/>
+                <label for='currentemployer'>Current Employer (if self-employed, name of buisness) </label>
+                <input type="text" name="currentemployername" id="employername" placeholder/>
                 <br />
-                <label for='supervisor'>Supervisor's Name </label>
-                <input type="text" name="supervisor" id="supervisor" placeholder/>
+                <label for='currentsupervisor'>Supervisor's Name </label>
+                <input type="text" name="currentsupervisor" id="currentsupervisor" placeholder/>
                 <br />
-                <label for='phone'>Supervisor's Phone Number: </label>
-                <input type="number" name="phone" id="phone" placeholder/>
+                <label for='currentemployerphone'>Supervisor's Phone Number: </label>
+                <input type="number" name="currentemployerphone" id="currentemployerphone" placeholder/>
                 <br />
-                <label for='address'>Employer Address: </label>
-                <input type="text" name="address" id="address" placeholder/>
+                <label for='currentemployeraddress'>Employer Address: </label>
+                <input type="text" name="currentemployeraddress" id="currentemployeraddress" placeholder/>
                 <br />
-                <label for='position'>Position: </label>
-                <input type="text" name="position" id="position" placeholder/>
+                <label for='currentposition'>Position: </label>
+                <input type="text" name="currentposition" id="currentposition" placeholder/>
                 <br />
-                <label for='business'>Type of Business: </label>
-                <input type="text" name="business" id="business" placeholder/>
+                <label for='currentbusiness'>Type of Business: </label>
+                <input type="text" name="currentbusiness" id="currentbusiness" placeholder/>
                 <br />
-                <label for='income'>Monthly Income $ </label>
-                <input type="number" name="income" id="income" placeholder/>
+                <label for='currentincome'>Monthly Income $ </label>
+                <input type="number" name="currentincome" id="currentincome" placeholder/>
                 <br />
-                <label for='date'>Date: From - To </label>
-                <input type="date" name="date" id="date" placeholder="Date"/>
-                <input type="date" name="date" id="date" placeholder="Date"/>
+                <label for='currentemploymentdate'>Date: From - To </label>
+                <input type="date" name="currentemploymentfromdate" id="currentemploymentfromdate" placeholder="Date"/>
+                <input type="date" name="currentemploymenttodate" id="currentemploymenttodate" placeholder="Date"/>
                 <br />
-                <label for='income'>Other Income $ </label>
-                <input type="number" name="income" id="income" placeholder/>
+                <label for='currentincome'>Other Income $ </label>
+                <input type="number" name="currentincome" id="currentincome" placeholder/>
                 <br />
-                <label for='source'>Source of Other Income: </label>
-                <input type="text" name="source" id="source" placeholder/>
+                <label for='currentsource'>Source of Other Income: </label>
+                <input type="text" name="currentsource" id="currentsource" placeholder/>
                 <br />
             <h3>Prior Employer:</h3>
-                <label for='employer'>Prior Employer (if self-employed, name of buisness) </label>
-                <input type="text" name="employername" id="employername" placeholder/>
+                <label for='prioremployer'>Prior Employer (if self-employed, name of buisness) </label>
+                <input type="text" name="prioremployername" id="prioremployername" placeholder/>
                 <br />
-                <label for='supervisor'>Supervisor's Name </label>
-                <input type="text" name="supervisor" id="supervisor" placeholder/>
+                <label for='priorsupervisor'>Supervisor's Name </label>
+                <input type="text" name="priorsupervisor" id="priorsupervisor" placeholder/>
                 <br />
-                <label for='phone'>Supervisor's Phone Number: </label>
-                <input type="number" name="phone" id="phone" placeholder/>
+                <label for='prioremployerphone'>Supervisor's Phone Number: </label>
+                <input type="number" name="prioremployerphone" id="prioremployerphone" placeholder/>
                 <br />
-                <label for='address'>Employer Address: </label>
-                <input type="text" name="address" id="address" placeholder/>
+                <label for='prioremployeraddress'>Employer Address: </label>
+                <input type="text" name="prioremployeraddress" id="prioremployeraddress" placeholder/>
                 <br />
-                <label for='position'>Position: </label>
-                <input type="text" name="position" id="position" placeholder/>
+                <label for='priorposition'>Position: </label>
+                <input type="text" name="priorposition" id="priorposition" placeholder/>
                 <br />
-                <label for='business'>Type of Business: </label>
-                <input type="text" name="business" id="business" placeholder/>
+                <label for='priorbusiness'>Type of Business: </label>
+                <input type="text" name="priorbusiness" id="priorbusiness" placeholder/>
                 <br />
-                <label for='income'>Monthly Income $ </label>
-                <input type="number" name="income" id="income" placeholder/>
+                <label for='priorincome'>Monthly Income $ </label>
+                <input type="number" name="priorincome" id="priorincome" placeholder/>
                 <br />
-                <label for='date'>Date: From - To </label>
-                <input type="date" name="date" id="date" placeholder="Date"/>
-                <input type="date" name="date" id="date" placeholder="Date"/>
-                <br />
-                <label for='income'>Other Income $ </label>
-                <input type="number" name="income" id="income" placeholder/>
+                <label for='prioremploymentdate'>Date: From - To </label>
+                <input type="date" name="prioremploymentfromdate" id="prioremploymentfromdate" placeholder="Date"/>
+                <input type="date" name="prioremploymenttodate" id="prioremploymenttodate" placeholder="Date"/>
                 <br />
         <h2>Financial Information</h2>
             <h3>Applicant's Bank Information:</h3>
                 <label for='bank'>Bank Name and Address </label>
                 <input type="text" name="bank" id="bank" placeholder/>
                 <br />
-                <label for='bankamount'>Checking Account Balance </label>
-                <input type="number" name="bankamount" id="bankamount" placeholder="$"/>
+                <label for='checkingbankamount'>Checking Account Balance </label>
+                <input type="number" name="checkingbankamount" id="checkingbankamount" placeholder="$"/>
                 <br/>
-                <label for='bankamount'>Savings Account Balance </label>
-                <input type="number" name="bankamount" id="bankamount" placeholder="$"/>
+                <label for='savingbankamount'>Savings Account Balance </label>
+                <input type="number" name="savingbankamount" id="savingbankamount" placeholder="$"/>
                 <br />
             <h3>Co-Applicant's Bank Information:</h3>
-                <label for='bank'>Bank Name and Address </label>
-                <input type="text" name="bank" id="bank" placeholder/>
+                <label for='cobank'>Bank Name and Address </label>
+                <input type="text" name="cobank" id="cobank" placeholder/>
                 <br />
-                <label for='bankamount'>Checking Account Balance </label>
-                <input type="number" name="bankamount" id="bankamount" placeholder="$"/>
+                <label for='cocheckingbankamount'>Checking Account Balance </label>
+                <input type="number" name="cocheckingbankamount" id="cocheckingbankamount" placeholder="$"/>
                 <br/>
-                <label for='bankamount'>Savings Account Balance </label>
-                <input type="number" name="bankamount" id="bankamount" placeholder="$"/>
+                <label for='cosavingbankamount'>Savings Account Balance </label>
+                <input type="number" name="cosavingbankamount" id="cosavingbankamount" placeholder="$"/>
                 <br />
 
                 <br />
