@@ -180,6 +180,23 @@ app.post('/api/request', function( req, res, next) {
 
 });
 
+app.post('/api/request/edit', function( req, res, next) {
+    db.collection('maintenance').updateOne({
+        user: req.body.user,
+        name: req.body.firstlastname,
+        email: req.body.email,
+        address: req.body.address,
+        date: req.body.date,
+        request: req.body.maintenancerequest
+    }).then(
+        console.log('Successful maintenance request generation')
+    ).then(
+        res.redirect(303, '/')
+    ).catch(function(err) {
+        console.log(err, req.body)
+    });
+});
+
 app.post('/api/rental', function( req, res, next) {
     db.collection('rentalApplication').save({
         todaysDate: req.body.todaysDate,
