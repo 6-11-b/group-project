@@ -15,6 +15,7 @@ class Request extends React.Component {
     }
     
     componentDidMount() {
+        
         this.callApi()
             .then( res => this.mapArray(res.maintenance)
                 .then( console.log(res) ) 
@@ -34,7 +35,7 @@ class Request extends React.Component {
 
     mapArray(array) {
         let localString =
-            <form id="request" action="/api/request/edit" method="POST">
+            <form id="request" action="/api/request/update" method="POST">
                 <label for='firstlastname'>Enter your First and Last name: </label>
                 <input type="text" name="firstlastname" id="firstlastname" value={array[0].name}/>
                 <br />
