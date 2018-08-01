@@ -183,7 +183,7 @@ app.get("/api/request", (req, res) => {
     db.collection('maintenance').find({email: currentUser.email}).toArray(function(err, reports) {  
         console.log("Fetching /api/requests");
         console.log(reports);
-        res.send({maintenance: reports });
+        res.send({ maintenance: reports });
     })
 });
 
@@ -196,7 +196,7 @@ app.post('/api/request/update', function( req, res, next) {
             date: req.body.date
         },
             {$set: {
-                maintenancerequest: req.body.maintenancerequest
+                request: req.body.maintenancerequest
             } },
             { upsert:true }
         ).then(
@@ -225,10 +225,11 @@ app.post('/api/request', function( req, res, next) {
     });
 });
 
+
 app.post('/api/request/delete', function( req, res, next) {
+    console.log(req.body);
     db.collection('maintenance').remove(
         {
-            user: req.body.user,
             name: req.body.firstlastname,
             email: req.body.email,
             address: req.body.address,
@@ -352,5 +353,3 @@ MongoClient.connect('mongodb://user1:L36e21o707@ds221271.mlab.com:21271/property
 });
 
 module.exports = app;
-
-
